@@ -122,17 +122,3 @@ def visualize_predictions(model, test_loader, class_names, num_images=6):
 
     plt.tight_layout()
     plt.show()
-
-# SAVE / LOAD FUNCTIONS
-def save_model(model, path="small_cnn.pth"):
-    """Saves the model's weights."""
-    torch.save(model.state_dict(), path)
-    print(f"Model saved to '{path}'")
-
-def load_model(path="small_cnn.pth"):
-    """Loads the model's weights into a new SmallCNN instance."""
-    model = SmallCNN()
-    model.load_state_dict(torch.load(path, map_location=torch.device('cpu')))
-    model.eval()
-    print(f"Model loaded from '{path}'")
-    return model
